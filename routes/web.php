@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/hello', function () {
+    $val = 50;
+    $name = 'Victoria';
+    $users = ['ahmed', 'kaled', 'wadeea', 'hani'];
+    return view('hello', ['value' => $val, 'name' => $name ,'students' => $users]);
+});
+
+Route::get('/',  function ()  {
     return view('welcome');
 });
+Route::get('/myBookings', BookingController::class . '@myBookings');
